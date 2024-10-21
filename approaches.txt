@@ -1,10 +1,62 @@
-meta data filetrs
-hybrid search
+QUERY TRANSLATION
 
-reranking
-recursive retrieval
-small to big retrieval
+rewriten
+	multi - query llm for decomposing query for sub-task for doc retrieval
+	RAG-fusion - rank retrieved document by formula += 1/(rank+s) : top k
 
-agents - chain of thought, query planning
-finetunning - generate synthetic data and compare retriever with this
+sub question
+	decompose least-to-most - "think machine learning" to "think", "machine", "learning"
+	IR-COT - irrel. chain of thought - subquestion-Answer(j<i) + ret.doc(i)
+	
+
+step-back prompting - ask abstract question by provifing example to llm(0) for ret.+que0
+	(Query analysis)
+	
+HyDE - take question and retrieve using generating hypothetical documents
+	
+Logical routing - ask llm to choos doc source like (python , go or java doc)
+semantic routing - choose doc souce using checking embedding similarity
+
+query structering - use metadata to generate relevant query describing kind of data source req.
+
+
+INDEXING
+
+multi vector rep. retriever - make doc more crisper by generating is summary and then search for
+			relevant doc by comparing its similarity with summary
+			
+RAPTOR - make cluster of doc and make high level cluster summary (make tree). retrieve raw data
+	for low	level question and high level cluster summary for high level question.
+
+ColBERT - make token of que and doc. doc-score-sum of max sim. of each quey to any doc embedding
+
+
+CRAG (cognitive architecture) -
+	retrueve doc
+	grade doc (using llm)
+	if any irrel. doc - retrieve from web search
+	else go ahead for generation
+
+Adaptive RAG -	
+	query analysis (by llm) to decide to go to vectore store, web-search or something else
+	grade documents
+	if not relevant -> go to web-search
+	generate using retrieved doc
+	use hallucination grader
+	till not hallucinating generate response
+	use llm to decide if to answer question
+	if no -> genearte till yes from retrieving through web-search
+	return answer
+
+
+other things -	
+	meta data filetrs
+	hybrid search
+
+	reranking
+	recursive retrieval
+	small to big retrieval
+
+	agents - chain of thought, query planning
+	finetunning - generate synthetic data and compare retriever with this
 
