@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "rag"
+version = "0.1.0"
+description = ""
+authors = ["Laksh-Mendpara <b23cs1037@iitj.ac.in>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+torch = { version = "^2.0.0", extras = ["cpu"] }
+sentence-transformers = { version = "2.2.1", markers = "python_version >= '3.6'" }
+pathway = "^0.15.1"
+spacy = "^3.8.2"
+requests = "^2.32.3"
+transformers = "^4.45.2"
+pinecone = "^5.3.1"
+regex = "^2024.9.11"
+pinecone-client = "^5.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
