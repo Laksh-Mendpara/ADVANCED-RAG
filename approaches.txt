@@ -1,0 +1,10 @@
+meta data filetrs
+hybrid search
+
+reranking
+recursive retrieval
+small to big retrieval
+
+agents - chain of thought, query planning
+finetunning - generate synthetic data and compare retriever with this
+
